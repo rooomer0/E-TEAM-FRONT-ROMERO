@@ -1,0 +1,19 @@
+.negro{
+    background-color: black;
+}
+
+.blanco{
+    background-color: white;
+}
+
+.block{
+    display: block;
+}
+
+.no-margin{
+    margin: 0;
+}
+
+.no-padding{
+    padding: 0;
+}
