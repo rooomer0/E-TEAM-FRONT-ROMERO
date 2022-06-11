@@ -17,11 +17,11 @@
 <body>
     <div class="container-fluid">
         <div class="cabecera">
-            <div class="logo-eteam"><img src="./resources/img/logos/eteam-logo.PNG"></div>
+            <div class="logo-eteam"><img src="./resources/logos/eteam-logo.PNG"></div>
             <div class="busqueda-barra">
                 <input class="busqueda-texto" type="text" placeholder="Búsqueda" name="busqueda">
-                <button class="busqueda-boton" type="submit">
-                    <img class="img-sm" src="./resources/img/icons/search.png"></img>
+                <button class="boton-icono img-sm">
+                    <i class="fi fi-rr-search"></i>
                 </button>
                 </input>
             </div>
@@ -56,7 +56,7 @@
                 <div class="col-md-12 datos-basicos">
                     <div class="row">
                         <div class="col-md-4">
-                            <span class="tipo-perfil">Perfil GAMER</span>
+                            <span class="tipo-perfil">Perfil <span id="tipo-perfil-span"></span></span>
                         </div>
                         <div class="col-md-4">
                         </div>
@@ -178,8 +178,8 @@
                         <div class="col-md-6">
                             <div class="busqueda-integrantes">
                                 <span>BÚSQUEDA</span>
-                                <button class="busqueda-integrantes-boton" type="submit">
-                                    <img class="img-sm" src="./resources/img/icons/search.png"></img>
+                                <button class="boton-icono busqueda-integrantes-boton img-sm">
+                                    <i class="fi fi-rr-search"></i>
                                 </button>
                             </div>
                         </div>
@@ -214,9 +214,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
-    <script>
-
-    </script>
+        <script src="./src/emojibuttonlistjs.js"></script>
+        <script src="./script-perfil-edicion.js">s </script>
 </body>
 
 </html>

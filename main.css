@@ -449,7 +449,7 @@ img{
 
 .boton-icono{
     border: none;
-    background-color: white;
+    background-color: transparent;
     outline:none
 }
 

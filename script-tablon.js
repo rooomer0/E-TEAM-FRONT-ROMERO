@@ -1,6 +1,16 @@
+//codigo cargado al cargar pagina
+
 $(document).ready(function () {
-  if ($("#imagen-cargada").attr("src") == "")
+  // conexion API
+  fetch("https://eteamapp.herokuapp.com/api/users/629923ac84944079440d54e0")
+  .then(respuesta => respuesta.json() )
+  .then(respuesta => console.log(respuesta))
+  
+  //imagen de comentario de tablon
+  if ($("#imagen-cargada").attr("src") == ""){
     $("#imagen-cargada").hide()
+  }
+    
 })
 
 imgInp.onchange = evt => {
@@ -54,3 +64,7 @@ $(document).ready(function () {
 
   });
 });
+
+
+
+
