@@ -244,6 +244,7 @@ img{
     width: 100%;
     height: auto ;
     border-radius: 10px;
+    padding-bottom: 2rem;
 }
 
 .datos-basicos{
@@ -465,4 +466,76 @@ img{
     width: 25%;
 }
 
+.comentarios-contenedor{
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
 
+.post{
+    margin-top: 3rem;
+    padding-right:12%;
+    padding-left: 12%;
+    border-bottom: 1px solid black;
+}
+
+.post-usuario-dato{
+    color: var(--morado-oscuro);
+    font-size: 1.7rem;
+}
+
+.img-miniatura-perfil-post{
+    width: 80px;
+    height: 80px;
+    -moz-border-radius: 100px;
+    -webkit-border-radius: 100px;
+    border-radius: 100px;
+}
+
+.post-fecha-hora{
+    display: inline-block;
+    margin-top: 1rem;
+}
+
+.post-contenido{
+    margin-top: 1rem;
+}
+
+.post-boton{
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    padding: 0;
+}
+
+.foto-video-contenedor {
+    padding-top: 1rem;
+}
+
+.foto-publicacion-miniatura{
+    width: 400px;
+    height: 400px;
+    margin-top: 1rem ;
+    border: 1px solid black;
+}
+
+.foto-publicacion-miniatura-izquierda{
+    width: 400px;
+    height: 400px;
+    margin: 1rem ;
+    margin-left: 4rem ;
+    border: 1px solid black;
+}
+
+.foto-publicacion-miniatura-derecha{
+    width: 400px;
+    height: 400px;
+    margin: 1rem ;
+    margin-right: 4rem ;
+    border: 1px solid black;
+}
+
+.foto-video-contenedor > .col-md-12 > .row > .col-md-4{
+   text-align: center;
+   padding: 0;
+   padding-bottom: 1rem;
+}

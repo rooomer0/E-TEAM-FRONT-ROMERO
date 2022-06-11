@@ -14,6 +14,12 @@
     margin: 0;
 }
 
+.no-margin-lados{
+    margin-left: 0;
+    margin-right: 0;
+}
+
+
 .no-padding{
     padding: 0;
 }
