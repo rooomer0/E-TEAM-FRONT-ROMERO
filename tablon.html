@@ -18,7 +18,7 @@
 <body>
     <div class="container-fluid">
         <div class="cabecera">
-            <div class="logo-eteam"><img src="./resources/logos/eteam-logo.PNG"></div>
+            <div class="logo-eteam"><img id="img-eteam" src="./resources/logos/eteam-logo.PNG"></div>
             <div class="busqueda-barra">
                 <input class="busqueda-texto" type="text" placeholder="Búsqueda" name="busqueda">
                 <button class="busqueda-boton" type="submit">
@@ -40,7 +40,7 @@
             <button class="boton-icono logo-noti icono-md">
                 <i class="fi fi-rr-bell"></i>
             </button>
-            <button class=" boton-icono logo-profile icono-md">
+            <button id="icono-perfil-boton" class=" boton-icono logo-profile icono-md">
                 <i class="fi fi-rr-user"></i>
             </button>
 
@@ -247,6 +247,28 @@
 
                         </div>
                     </div>
+                    
+                </div>
+            </div>
+        </div>
+        <div id="desplegable-perfil" class="row desplegable-perfil">
+            <div class="col-md-12 datos-basicos-miniatura">
+                <div class="row">
+                    <div class="col-md-12">
+                        <span class="dato-usuario-tablon-miniatura">@<span id="usuario-tablon-span-miniatura"></span></span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <span class="dato-usuario-tablon-miniatura"><span id="descripcion-tablon-span-minatura"></span></span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <span class="dato-usuario-tablon-miniatura">Integrante de EquipoA</span>
+                    </div>
+                    </div>
+                </div>
                 </div>
             </div>
         </div>

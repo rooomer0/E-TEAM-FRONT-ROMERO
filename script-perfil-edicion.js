@@ -3,7 +3,7 @@
 $(document).ready(function () {
   // conexion API
   $.ajax({
-    url: 'https://eteamapp.herokuapp.com/api/users/62a4d28ac27a64a3da0995ec',
+    url: 'http://localhost:8800/api/users/62a4d28ac27a64a3da0995ec',
     type: 'GET',
     success: function (respuesta) {
       if (respuesta.datos.profileType.toString() == "gamer") {
@@ -22,7 +22,6 @@ $(document).ready(function () {
         $("#boton-anadir-juego").show();
         $("#eliminar-juego-perfil").hide();
         $("#editar-juego-perfil").hide();
-        $("#form-datos-juego").show();
       } else {
         $("#boton-anadir-juego").hide();
         $("#eliminar-juego-perfil").show();
@@ -35,20 +34,48 @@ $(document).ready(function () {
       console.error("No es posible completar la operación");
     }
   });
+   $("#boton-anadir-juego").click(function(){
+    $(".form-datos-juego").show();
+   })
 })
+
 
 $("#eliminar-juego-perfil").click(function () {
   $.ajax({
-    url: 'https://eteamapp.herokuapp.com/api/auth/login',
-    'data': {
-      "username": "prueba",
-      "email":"prueba@gmail.com",
-      "password":"1234"
-    }, //{action:'x',params:['a','b','c']}
+    url: 'http://localhost:8800/api/users/62a4d28ac27a64a3da0995ec',
+    'data': JSON.stringify({
+      games: ""
+            }), 
     'type': 'PUT',
     'contentType': 'application/json; charset=utf-8',
    });
+   location.reload();
 })
+
+
+$("#editar-juego-perfil").click(function () {
+  $.ajax({
+    url: 'http://localhost:8800/api/users/62a4d28ac27a64a3da0995ec',
+    'data': JSON.stringify({
+      games: ""
+            }), 
+    'type': 'PUT',
+    'contentType': 'application/json; charset=utf-8',
+   });
+   location.reload();
+})
+// $(document).ready(function () {
+//   $.ajax({
+//     url: 'https://eteamapp.herokuapp.com/api/auth/login',
+//     type: 'GET' ,
+//     success: function (respuesta) {
+//       console.log(respuesta);
+//     },
+//     error: function (){
+
+//     }
+//    });
+// })
 
 
 // $(document).ready(function () {

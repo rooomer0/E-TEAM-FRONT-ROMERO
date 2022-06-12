@@ -1,11 +1,15 @@
 $(document).ready(function () {
+
   $.ajax({
-    url: 'https://eteamapp.herokuapp.com/api/users/62a4d28ac27a64a3da0995ec',
+    url: 'http://localhost:8800/api/users/62a4d28ac27a64a3da0995ec',
     type: 'GET',
     success: function (respuesta) {
       //carga de datos del usuario con el que se ha iniciado sesion
+      // $("#img-eteam").attr("src",respuesta.datos.username);
       $("#usuario-tablon-span").html(respuesta.datos.username.toString());
       $("#descripcion-tablon-span").html(respuesta.datos.description.toString());
+      $("#usuario-tablon-span-miniatura").html(respuesta.datos.username.toString());
+      $("#descripcion-tablon-span-miniatura").html(respuesta.datos.description.toString());
       $("#nombre-tablon-span").html(respuesta.datos.name.toString());
       $("#apellidos-tablon-span").html(respuesta.datos.secondName.toString());
       $("#juegos-tablon-span").html(respuesta.datos.games.toString());
@@ -139,6 +143,13 @@ $(document).ready(function () {
     $("#contenedor-destacados").show();
 
   });
+  $("#icono-perfil-boton").click(function () {
+    if ($(".desplegable-perfil").css("display") == "none") {
+      $(".desplegable-perfil").show()
+    } else{
+      $(".desplegable-perfil").hide()
+    }
+  })
 });
 
 
