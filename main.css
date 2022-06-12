@@ -471,7 +471,6 @@ img{
     margin-top: 3rem;
     padding-right:12%;
     padding-left: 12%;
-    border-bottom: 1px solid black;
 }
 
 .post-usuario-dato{
@@ -494,6 +493,7 @@ img{
 
 .post-contenido{
     margin-top: 1rem;
+    font-size: 1.5rem;
 }
 
 .post-boton{
@@ -536,6 +536,14 @@ img{
    padding-bottom: 1rem;
 }
 
-#eliminar-juego-perfil{
-    text-align: left;
+.eliminar-juego-perfil{
+ margin:0;
 }
+
+.barraNegra{
+    width: 100%;
+    margin-top: 3rem ;
+    margin-bottom: 3rem ;
+    border-bottom: 1px solid;
+}
+

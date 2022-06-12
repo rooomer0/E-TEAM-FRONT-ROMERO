@@ -1,18 +1,89 @@
 $(document).ready(function () {
   $.ajax({
-    url: 'https://eteamapp.herokuapp.com/api/users/629923ac84944079440d54e0',
+    url: 'https://eteamapp.herokuapp.com/api/users/62a4d28ac27a64a3da0995ec',
     type: 'GET',
-    success: function(respuesta) {
+    success: function (respuesta) {
+      //carga de datos del usuario con el que se ha iniciado sesion
       $("#usuario-tablon-span").html(respuesta.datos.username.toString());
+      $("#descripcion-tablon-span").html(respuesta.datos.description.toString());
+      $("#nombre-tablon-span").html(respuesta.datos.name.toString());
+      $("#apellidos-tablon-span").html(respuesta.datos.secondName.toString());
+      $("#juegos-tablon-span").html(respuesta.datos.games.toString());
       $("#seguidores-perfil-span").html(respuesta.datos.theFollowers.length);
       $("#siguiendo-perfil-span").html(respuesta.datos.theFollowing.length);
+      for (let index = 0; index < respuesta.datos.thePosts.length; index++) {
+        let idPost = respuesta.datos.thePosts[index].id;
+        $("#contenedor-post").append(`<div class="row">
+      <div class="col-md-1">
+          <img class="img-miniatura-perfil-post" src="../../../Downloads/img_perfil.jpeg">
+      </div>
+      <div class="col-md-11">
+          <span class="post-usuario-dato">@<span id="usuario-post-span${idPost}"></span></span><br>
+          <span class="post-usuario-dato"><span id="descripcion-usuario-post-span${idPost}"></span></span><br>
+          <span class="post-fecha-hora"><span id="hora-post-span${idPost}"></span></span>
+      </div>
+  </div>
+  <div class="row">
+      <div class="col-md-1"></div>
+      <div class="col-md-10 post-contenido">
+          <span id="descripcion-post-span${idPost}"></span>
+      </div>
+      <div class="col-md-1"></div>
+  </div>
+  <div class="row">
+      <div class="col-md-2 post-boton">
+          <button class="boton-icono icono-xs">
+              <i class="fi fi-rr-redo align-middle"></i>
+              <span class="numero-interacciones">50</span>
+          </button>
+      </div>
+      <div class="col-md-2 post-boton">
+          <button class="boton-icono icono-xs">
+              <i class="fi fi-rr-heart align-middle"></i>
+              <span class="numero-interacciones">50</span>
+          </button>
+      </div>
+      <div class="col-md-2 post-boton">
+          <button class="boton-icono icono-xs " >
+              <i class="fi fi-rr-comment align-middle"></i>
+              <span class="numero-interacciones">50</span>
+          </button>
+      </div>
+      <div class="col-md-2 post-boton">
+          <button class="boton-icono icono-xs">
+              <i class="fi fi-rr-share align-middle"></i>
+              <span class="numero-interacciones">50</span>
+          </button>
+      </div>
+      <div class="col-md-2 post-boton">
+          <button class=" boton-icono icono-xs ">
+              <i class="fi fi-rr-bookmark align-middle"></i>
+              <span class="numero-interacciones">50</span>
+          </button>
+      </div>
+      <div class="col-md-2 post-boton">
+          <button class="boton-icono icono-xs">
+              <i class="fi fi-rr-menu-dots-vertical align-middle"></i>
+              <span class="numero-interacciones ">50</span>
+      </button>
+      </div>
+  </div>
+  <div class="row barraNegra">`)
+        $(`#usuario-post-span${idPost}`).html(respuesta.datos.thePosts[index].owner.toString());
+        $(`#descripcion-usuario-post-span${idPost}`).html(respuesta.datos.thePosts[index].owner.toString());
+        $(`#hora-post-span${idPost}`).html(respuesta.datos.thePosts[index].createdAt.toString());
+        $(`#descripcion-post-span${idPost}`).html(respuesta.datos.thePosts[index].text.toString());
+        console.log(respuesta.datos.thePosts[index].createdAt.toString());
+
+      }
+
     },
-    error: function() {
-        console.error("No es posible completar la operación");
+    error: function () {
+      console.error("No es posible completar la operación");
     }
   });
   // conexion API
-  
+
 })
 
 imgInp.onchange = evt => {
@@ -41,13 +112,13 @@ $(document).ready(function () {
 
 
 $(document).ready(function () {
-  if ($("#imagen-cargada").attr("src") == ""){
+  if ($("#imagen-cargada").attr("src") == "") {
     $("#imagen-cargada").hide()
   }
   $("#contenedor-comentarios").show();
   $("#contenedor-fotos-videos").hide();
   $("#contenedor-destacados").hide();
-  
+
   $("#seccion-comentarios").click(function () {
     $("#contenedor-comentarios").show();
     $("#contenedor-fotos-videos").hide();
