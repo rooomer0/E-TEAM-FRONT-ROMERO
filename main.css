@@ -338,10 +338,6 @@ img{
     margin-left: 3rem;
 }
 
-.datos-juego-iconos-centrados{
-    padding-top: 2rem;
-}
-
 .img-miniatura-perfil{
     width: 60px;
     height: 60px;
@@ -538,4 +534,8 @@ img{
    text-align: center;
    padding: 0;
    padding-bottom: 1rem;
+}
+
+#eliminar-juego-perfil{
+    text-align: left;
 }

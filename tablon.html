@@ -119,16 +119,14 @@
                     </div>
                     <div class="row">
                         <div class="col-md-4">
-                            <span class="atributo-perfil">Valorant -</span>
-                            <span class="atributo-perfil">Capitán -</span>
-                            <span class="atributo-perfil">Nivel 20</span>
+                            <span id="juegos-usuario" class="atributo-perfil"></span>
                         </div>
                         <div class="col-md-4"></div>
                         <div class="col-md-4 "></div>
                     </div>
                     <div class="row bloque-datos">
                         <div class="col-md-12">
-                            <textarea id="boton-emoji1" class="comentario-perfil"></textarea>
+                            <textarea id="boton-emoji1" class="comentario-perfil" placeholder="Comentario"></textarea>
                             <div class="row">
                                 <div class="col-md-9">
                                     <img id="imagen-cargada" src="">
@@ -147,9 +145,6 @@
                                                 <div class="modal-dialog" role="document">
                                                     <div class="modal-content">
                                                         <div class="modal-header">
-                                                            <h5 class="modal-title" id="modalSubirImagenLabel">Cargue la
-                                                                imagen desde su ordenador
-                                                            </h5>
                                                             <button type="button" class="close" data-dismiss="modal"
                                                                 aria-label="Close">
                                                                 <span aria-hidden="true">&times;</span>
@@ -157,7 +152,7 @@
                                                         </div>
                                                         <div class="modal-body" id="imagen-comentario-cargada">
                                                             <form runat="server">
-                                                                <input accept="image/*" type='file' id="imgInp" />
+                                                                <input class="input-subir-img" accept="image/*" type='file' id="imgInp" />
                                                                 <img id="blah" src="#" alt="Arrastra aquí tu imagen" />
                                                             </form>
                                                         </div>
