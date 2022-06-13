@@ -1,6 +1,7 @@
 /* variables globales */
-html{
+html,body{
     font-size: 16px;
+    height: auto;
 }
 
 :root {
@@ -29,7 +30,7 @@ img{
     padding-left: 0;
     padding-right: 0;
     background-color: var(--blanco-oscuro);
-    height: 200%;
+    height:auto;
 }
 
 .cabecera{
@@ -151,12 +152,11 @@ img{
 }
 
 .busqueda-texto{
-    width: 80%;
-    height: 100%;
-    margin-left: 0.5rem;
-    padding: 0.6rem;
+    width: 50%;
+    height: 60%;  
     background-color: transparent;
     border: none;
+    font-size: 1rem;
 }
 
 .busqueda-texto:focus{
@@ -168,6 +168,10 @@ img{
     background-color: transparent;
     border: none;
     
+}
+
+.icono-busqueda-integrantes{
+    margin-left: 8rem;
 }
 
 #imagen-header{
@@ -207,6 +211,7 @@ img{
 
 .atributo-perfil{
     font-size: 1.2rem;
+
 }
 
 .iconos-navegacion{
@@ -289,7 +294,7 @@ img{
     width: 50%;
     color: white;
     border: none;
-    border-radius: 4px;
+    border-radius: 20px;
     font-weight: bold;
     margin-top: 3rem;
     margin-bottom: 3rem;
@@ -351,7 +356,7 @@ img{
 
 .lista-integrantes{
     padding-top: 1rem;
-    padding-left: 1rem;
+    padding-left: 7rem;
 }
 
 .busqueda-integrantes{
@@ -452,6 +457,19 @@ img{
 }
 
 .boton-icono:focus{
+    outline: none;
+}
+
+
+.boton-icono-borrar{
+    margin-left: 5rem;
+    margin-top: 1.5rem;
+    border: none;
+    background-color: transparent;
+    outline:none
+}
+
+.boton-icono-borrar:focus{
     outline: none;
 }
 
@@ -622,3 +640,7 @@ img{
     outline: none;
     color: var(--morado-oscuro);
 }
+
+/* .datos-juegos-dentro-form{
+    margin: 0;
+} */

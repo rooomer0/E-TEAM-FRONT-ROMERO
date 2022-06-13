@@ -37,7 +37,7 @@
             <button class="boton-icono logo-noti icono-md">
                 <i class="fi fi-rr-bell"></i>
             </button>
-            <button id="icono-perfil-boton"  class="boton-icono logo-profile icono-md">
+            <button id="icono-perfil-boton" class="boton-icono logo-profile icono-md">
                 <i class="fi fi-rr-user"></i>
             </button>
 
@@ -110,12 +110,21 @@
                         <div class="col-md-4">
                         </div>
                     </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                        </div>
+                        <div class="col-md-4">
+                        </div>
+                        <div class="col-md-4">
+                            <input id="boton-guardar-datos-perfil" class="boton-perfil-guardar" type="button"
+                                value="GUARDAR">
+                        </div>
+                    </div>
                 </div>
                 <div class="col-md-12 datos-juegos">
                     <div class="row">
                         <div class="col-md-4">
-                            <span class="tipo-perfil">JUEGO </span><button id="boton-anadir-juego"
-                                class="boton-icono icono-xs"><i class="fi fi-rr-add"></i></button>
+                            <span class="tipo-perfil">JUEGO </span>
                         </div>
                         <div class="col-md-4">
                         </div>
@@ -137,22 +146,21 @@
                     </div>
                     <div id="form-datos-juego" class="row bloque-datos form-datos-juego">
                         <div class="col-md-6">
-                            <input class="input-comun " type="text" placeholder="Juego">
-                            <input class="input-comun " type="text" placeholder="Rol">
-                            <input class="input-comun " type="text" placeholder="Nivel">
+                            <input id="juego-form-datos" class="input-comun " type="text" placeholder="Juego">
+                            <input id="rol-form-datos" class="input-comun " type="text" placeholder="Rol">
+                            <input id="nivel-form-datos" class="input-comun " type="text" placeholder="Nivel">
                         </div>
                         <div class="col-md-3">
                         </div>
                         <div class="col-md-3">
-                            <input class="boton-morado-sm" type="button" value="HECHO">
+                            <input id="boton-guardar-datos-juegos" class="boton-morado-sm" type="button" value="HECHO">
                         </div>
                     </div>
                 </div>
                 <div class="col-md-12 datos-integrantes">
                     <div class="row">
                         <div class="col-md-4">
-                            <span class="tipo-perfil">INTEGRANTES </span><button class="boton-icono icono-xs"><i
-                                    class="fi fi-rr-add"></i></button>
+                            <span class="tipo-perfil">INTEGRANTES </span>
                         </div>
                         <div class="col-md-4">
                         </div>
@@ -160,24 +168,21 @@
 
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-md-4 lista-integrantes">
-                            <img class="img-miniatura-perfil" src="../../../Downloads/img_perfil.jpeg">
-                            <span class="atributo-perfil">Valorant -</span>
-                            <span class="atributo-perfil">Capitán -</span>
-                            <span class="atributo-perfil">Nivel 20</span>
-                        </div>
-                        <div class="col-md-4">
-                        </div>
-                        <div class="col-md-4 datos-juego-iconos-centrados">
-                            <button class="boton-icono icono-sm"><i class="fi fi-rr-trash logo-datos"></i></button>
-                        </div>
+                    <div class="row" id="lista-integrantes-carga">
+
                     </div>
                     <div class="row bloque-datos">
                         <div class="col-md-6">
-                            <div class="busqueda-integrantes">
+                            <!-- <div class="busqueda-integrantes">
                                 <span>BÚSQUEDA</span>
                                 <button class="boton-icono busqueda-integrantes-boton img-sm">
+                                    <i class="fi fi-rr-search"></i>
+                                </button>
+                            </div>
+                            <in -->
+                            <div class="busqueda-integrantes">
+                                <input id="buscador-integrante" class="busqueda-texto" type="text" placeholder="Búsqueda" name="busqueda">
+                                <button class="boton-icono icono-busqueda-integrantes img-sm">
                                     <i class="fi fi-rr-search"></i>
                                 </button>
                             </div>
@@ -187,13 +192,6 @@
                         </div>
                         <div class="col-md-3">
                             <input class="boton-morado-sm" type="button" value="HECHO">
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-4"></div>
-                        <div class="col-md-4"></div>
-                        <div class="col-md-4">
-                            <input class="boton-perfil-guardar" type="button" value="GUARDAR">
                         </div>
                     </div>
                 </div>
