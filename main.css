@@ -157,6 +157,7 @@ img{
     background-color: transparent;
     border: none;
     font-size: 1rem;
+    margin-right: 4rem;
 }
 
 .busqueda-texto:focus{
@@ -171,7 +172,7 @@ img{
 }
 
 .icono-busqueda-integrantes{
-    margin-left: 8rem;
+    margin-left: 5rem;
 }
 
 #imagen-header{
@@ -189,8 +190,21 @@ img{
     margin-top: 1%;
     width: 75%;
 }
+.input-comun-juegos{
+    background-color: var(--blanco-oscuro);
+    border-radius: 5px;
+    border: solid black 1px;
+    padding: 1%;
+    font-size: 1rem;
+    margin-top: 1%;
+    width: 65%;
+}
 
 .input-comun:focus{
+    outline: none;
+}
+
+.input-comun-juegos:focus{
     outline: none;
 }
 
@@ -330,7 +344,6 @@ img{
     margin-top: 3rem;
     padding-left:8rem;
     position: inherit;
-    
 }
 
 .bloque-datos{
@@ -340,6 +353,7 @@ img{
     margin-right: 20rem;
     padding-top: 0.7rem;
     padding-bottom: 0.7rem;
+    height: 15rem;
 }
 
 .logo-datos{
@@ -453,7 +467,7 @@ img{
 .boton-icono{
     border: none;
     background-color: transparent;
-    outline:none
+    outline:none;
 }
 
 .boton-icono:focus{
@@ -644,3 +658,76 @@ img{
 /* .datos-juegos-dentro-form{
     margin: 0;
 } */
+
+.boton-integrante{
+    background-color: white;
+    display: inline-block;
+    border: 1px solid rgb(172, 172, 172);
+    margin-left: 7px;
+    margin-top: 0.1rem;
+    width: 371.1px;
+    height: 39.2px;
+}
+
+.boton-integrante:active{
+    outline-color: none;
+}
+
+.boton-integrante:focus{
+    outline: none;
+}
+
+.boton-integrante:hover{
+    background-color: var(--morado-claro);
+    cursor: pointer;
+}
+
+.seleccionado{
+     background-color: var(--morado-claro);
+     font-weight: bold;
+}
+
+#boton-guardar-datos-juegos{
+    margin-top: 10px;
+    margin-right: 2rem;
+    width: 12%;
+}
+
+.negro{
+    background-color: black;
+}
+
+.blanco{
+    background-color: white;
+}
+
+.block{
+    display: block;
+}
+
+.no-margin{
+    margin: 0;
+}
+
+.no-margin-lados{
+    margin-left: 0;
+    margin-right: 0;
+}
+
+
+.no-padding{
+    padding: 0;
+}
+
+.input-subir-img{
+    /* height: 300px; */
+    opacity: 0;
+}
+
+#img-boton-busqueda{
+    padding-left: 2rem;
+}
+
+.centrar-form-juegos{
+    padding-right: 15rem;
+}

@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="main.css">
-    <link rel="stylesheet" href="pruebas.css">
     <link rel="stylesheet" href="./src/emojibuttonlistjs.css" />
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>
 
@@ -21,10 +20,8 @@
             <div class="logo-eteam"><img id="img-eteam" src="./resources/logos/eteam-logo.PNG"></div>
             <div class="busqueda-barra">
                 <input class="busqueda-texto" type="text" placeholder="Búsqueda" name="busqueda">
-                <button class="busqueda-boton" type="submit">
-                    <button class="boton-icono img-sm">
-                        <i class="fi fi-rr-search"></i>
-                    </button>
+                <button class="boton-icono img-sm">
+                    <i class="fi fi-rr-search"></i>
                 </button>
                 </input>
             </div>
@@ -51,7 +48,7 @@
             <div class="row img-cabecera negro">
                 <div class="img-perfil">
                     <!-- <img class="img-perfil-src" src="../../../Downloads/Square_200x200.png"> -->
-                    <img class="img-perfil-src" src="../../../Downloads/img_perfil.jpeg">
+                    <img id="img-perfil" class="img-perfil-src" src="">
                 </div>
             </div>
 
@@ -153,11 +150,7 @@
                                                             </button>
                                                         </div>
                                                         <div class="modal-body" id="imagen-comentario-cargada">
-                                                            <form runat="server">
-                                                                <input class="input-subir-img" accept="image/*"
-                                                                    type='file' id="imgInp" />
-                                                                <img id="blah" src="#" alt="Arrastra aquí tu imagen" />
-                                                            </form>
+                                                            <input type="text" id="imagen-url">
                                                         </div>
                                                         <div class="modal-footer">
                                                             <button type="button" id="boton-subir-imagen"

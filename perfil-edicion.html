@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="main.css">
-    <link rel="stylesheet" href="pruebas.css">
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>
 
 </head>
@@ -42,13 +41,15 @@
             </button>
 
         </div>
-        <div class="cabecera-flotante"></div>
+        <div class="cabecera-flotante">
+        </div>
         <div class="row cuerpo-perfil">
 
             <div class="row img-cabecera negro">
                 <div class="img-perfil">
+
                     <!-- <img class="img-perfil-src" src="../../../Downloads/Square_200x200.png"> -->
-                    <img class="img-perfil-src" src="../../../Downloads/img_perfil.jpeg">
+                    <img id="img-perfil" class="img-perfil-src" src="../../../Downloads/img_perfil.jpeg">
                 </div>
             </div>
 
@@ -145,16 +146,14 @@
                         </div>
                     </div>
                     <div id="form-datos-juego" class="row bloque-datos form-datos-juego">
-                        <div class="col-md-6">
-                            <input id="juego-form-datos" class="input-comun " type="text" placeholder="Juego">
-                            <input id="rol-form-datos" class="input-comun " type="text" placeholder="Rol">
-                            <input id="nivel-form-datos" class="input-comun " type="text" placeholder="Nivel">
+                        <div class="col-md-12" id="centrar-form-juegos">
+                            <input id="juego-form-datos" class="input-comun-juegos " type="text" placeholder="Juego">
+                            <input id="rol-form-datos" class="input-comun-juegos " type="text" placeholder="Rol">
+                            <input id="nivel-form-datos" class="input-comun-juegos " type="text" placeholder="Nivel"><input id="boton-guardar-datos-juegos" class="boton-morado-sm" type="button" value="HECHO">
                         </div>
-                        <div class="col-md-3">
-                        </div>
-                        <div class="col-md-3">
-                            <input id="boton-guardar-datos-juegos" class="boton-morado-sm" type="button" value="HECHO">
-                        </div>
+                     
+                            
+
                     </div>
                 </div>
                 <div class="col-md-12 datos-integrantes">
@@ -171,15 +170,8 @@
                     <div class="row" id="lista-integrantes-carga">
 
                     </div>
-                    <div class="row bloque-datos">
-                        <div class="col-md-6">
-                            <!-- <div class="busqueda-integrantes">
-                                <span>BÚSQUEDA</span>
-                                <button class="boton-icono busqueda-integrantes-boton img-sm">
-                                    <i class="fi fi-rr-search"></i>
-                                </button>
-                            </div>
-                            <in -->
+                    <div  class="row bloque-datos">
+                        <div class="col-md-6" id="carga-integrantes">
                             <div class="busqueda-integrantes">
                                 <input id="buscador-integrante" class="busqueda-texto" type="text" placeholder="Búsqueda" name="busqueda">
                                 <button class="boton-icono icono-busqueda-integrantes img-sm">
@@ -188,12 +180,13 @@
                             </div>
                         </div>
                         <div class="col-md-3">
-
+                            
                         </div>
                         <div class="col-md-3">
-                            <input class="boton-morado-sm" type="button" value="HECHO">
+                            <input id="lanzar-integrante-nuevo" class="boton-morado-sm" type="button" value="HECHO">
                         </div>
                     </div>
+                    
                 </div>
 
             </div>
@@ -251,7 +244,7 @@
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
     <script src="./src/emojibuttonlistjs.js"></script>
-    <script src="./script-perfil-edicion.js">s </script>
+    <script src="./script-perfil-edicion.js"></script>
 </body>
 
 </html>

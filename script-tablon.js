@@ -1,7 +1,8 @@
 let idInicioSesion = "62a702295174230e04ecafe4"
+let servidor = "http://localhost:8800/api/"
 $(document).ready(function () {
   $.ajax({
-    url: 'http://localhost:8800/api/users/62a702295174230e04ecafe4',
+    url: servidor + 'users/' + idInicioSesion,
     type: 'GET',
     success: function (respuesta) {
       //carga de datos del usuario con el que se ha iniciado sesion
@@ -87,14 +88,6 @@ $(document).ready(function () {
 
 })
 
-imgInp.onchange = evt => {
-  const [file] = imgInp.files
-  if (file) {
-    blah.src = URL.createObjectURL(file)
-    $("#imagen-cargada").show()
-    $("#imagen-cargada").attr("src", blah.src)
-  }
-}
 
 $(document).ready(function () {
   var margin = 10,
@@ -113,9 +106,7 @@ $(document).ready(function () {
 
 
 $(document).ready(function () {
-  if ($("#imagen-cargada").attr("src") == "") {
-    $("#imagen-cargada").hide()
-  }
+
   $("#contenedor-comentarios").show();
   $("#contenedor-fotos-videos").hide();
   $("#contenedor-destacados").hide();
@@ -153,7 +144,7 @@ $("#boton-subir-post").click(function(){
   let contenidNuevoPost = $("#texto-post-subir").val();
   let idOwner = "62a702295174230e04ecafe4";
   $.ajax({
-    url: 'http://localhost:8800/api/posts/',
+    url: servidor + 'posts/',
     'data': JSON.stringify({   
       text: contenidNuevoPost,
       multimedia:"",
@@ -166,4 +157,5 @@ $("#boton-subir-post").click(function(){
   });
   location.reload();
 })
+
 

@@ -1,11 +1,12 @@
 
 
-let idInicioSesion = "62a702295174230e04ecafe4"
+let idInicioSesion = "629923ac84944079440d54e0"
+let servidor = "http://localhost:8800/api/"
 let gamesUsuario = "";
 $(document).ready(function () {
   // conexion API
   $.ajax({
-    url: 'http://localhost:8800/api/users/' + idInicioSesion,
+    url: servidor + 'users/' + idInicioSesion,
     type: 'GET',
     success: function (respuesta) {
       if (respuesta.datos.profileType.toString() == "gamer") {
@@ -25,33 +26,29 @@ $(document).ready(function () {
       $("#nombre-usuario").val(respuesta.datos.name.toString())
       $("#apellidos-usuario").val(respuesta.datos.secondName.toString())
       $("#descripcion-usuario").val(respuesta.datos.description.toString())
-
       for (let i = 0; i < respuesta.datos.theTeam.length; i++) {
 
         $.ajax({
-          url: 'http://localhost:8800/api/users/' + respuesta.datos.theTeam[i].user,
+          url: servidor + 'users/' + respuesta.datos.theTeam[i].user,
           type: 'GET',
           success: function (respuestaTeam) {
             $("#lista-integrantes-carga").append(`
                         <div class="col-md-8 lista-integrantes">
                             <img class="img-miniatura-perfil">
-                            <span id="integrante-username-datos${i}" class="atributo-perfil"></span>
-                            <span id="integrante-correo-datos${i}"   class="atributo-perfil"></span>
-                            <span id="integrante-juego-datos${i}"    class="atributo-perfil"></span>
-                            <span id="integrante-fecha-datos${i}"    class="atributo-perfil"></span>
+                            <span id="integrante-username-datos${i}" class="atributo-perfil">${respuestaTeam.datos.username + " - "}</span>
+                            <span id="integrante-correo-datos${i}"   class="atributo-perfil">${respuestaTeam.datos.email + " - "}</span>
+                            <span id="integrante-juego-datos${i}"    class="atributo-perfil">${respuestaTeam.datos.games + " - "}</span>
+                            <span id="integrante-fecha-datos${i}"    class="atributo-perfil">${formatearFecha(respuesta.datos.theTeam[i].createdAt, "all")}</span>
                            
                         </div>
                         <div class="col-md-2 datos-juego-iconos-centrados">
                             <button id="eliminar-integrante-perfil${i}" class="boton-icono-borrar icono-sm"><i class="fi fi-rr-trash logo-datos"></i></button>
                         </div>
             `)
-            $(`#integrante-username-datos${i}`).html(respuestaTeam.datos.username + " - ")
-            $(`#integrante-correo-datos${i}`).html(respuestaTeam.datos.email + " - ")
-            $(`#integrante-juego-datos${i}`).html(respuestaTeam.datos.games + " - ")
-            $(`#integrante-fecha-datos${i}`).html(formatearFecha(respuestaTeam.datos.createdAt, "date"))
+
             $(`#eliminar-integrante-perfil${i}`).click(function () {
               $.ajax({
-                url: 'http://localhost:8800/api/members/' + respuesta.datos.theTeam[i].id,
+                url: servidor + 'members/' + respuesta.datos.theTeam[i].id,
                 'data': JSON.stringify({
                   "team": idInicioSesion,
                   "user": respuestaTeam.datos.id
@@ -64,6 +61,9 @@ $(document).ready(function () {
           }
         })
       }
+
+
+      $("#img-perfil").attr('src',   `data:image/png;base64,${toBase64(respuesta.datos.coverImg.img.data.data)}`)
 
       if (respuesta.datos.games.toString() == "") {
         $("#eliminar-juego-perfil").hide();
@@ -99,7 +99,7 @@ $(document).ready(function () {
 $("#boton-crear-perfil").click(function () {
   if ($("#boton-crear-perfil").val() == "Crear perfil GAMER") {
     $.ajax({
-      url: 'http://localhost:8800/api/users/' + idInicioSesion,
+      url: servidor + 'users/' + idInicioSesion,
       'data': JSON.stringify({
         profileType: "gamer"
       }),
@@ -109,7 +109,7 @@ $("#boton-crear-perfil").click(function () {
     location.reload();
   } else if ($("#boton-crear-perfil").val() == "Crear perfil EQUIPO") {
     $.ajax({
-      url: 'http://localhost:8800/api/users/' + idInicioSesion,
+      url: servidor + 'users/' + idInicioSesion,
       'data': JSON.stringify({
         profileType: "team"
       }),
@@ -122,24 +122,11 @@ $("#boton-crear-perfil").click(function () {
 
 $("#eliminar-juego-perfil").click(function () {
   $.ajax({
-    url: 'http://localhost:8800/api/users/' + idInicioSesion,
+    url: servidor + 'users/' + idInicioSesion,
     'data': JSON.stringify({
       games: ""
     }),
     'type': 'PUT',
-    'contentType': 'application/json; charset=utf-8',
-  });
-  location.reload();
-})
-
-$("#eliminar-integrante-perfil").click(function () {
-  $.ajax({
-    url: 'http://localhost:8800/api/members/',
-    'data': JSON.stringify({
-      "team": idInicioSesion,
-      "user": "629b202c2d005dde25eebee6"
-    }),
-    'type': 'DELETE',
     'contentType': 'application/json; charset=utf-8',
   });
   location.reload();
@@ -172,16 +159,6 @@ $("#editar-juego-perfil").click(function () {
 
   f();
 
-
-  // $.ajax({
-  //   url: 'http://localhost:8800/api/users/' + idInicioSesion,
-  //   'data': JSON.stringify({
-  //     games: ""
-  //   }),
-  //   'type': 'PUT',
-  //   'contentType': 'application/json; charset=utf-8',
-  // });
-  // location.reload();
 })
 
 $("#iniciar-sesion").click(function (e) {
@@ -206,7 +183,7 @@ $("#boton-guardar-datos-perfil").click(function () {
   let apellidosUsuario = $("#apellidos-usuario").val()
   let descripcionUsuario = $("#descripcion-usuario").val()
   $.ajax({
-    url: 'http://localhost:8800/api/users/' + idInicioSesion,
+    url: servidor + 'users/' + idInicioSesion,
     'data': JSON.stringify({
       name: nombreUsuario,
       secondName: apellidosUsuario,
@@ -230,7 +207,7 @@ $("#boton-guardar-datos-juegos").click(function () {
     }
   }
   $.ajax({
-    url: 'http://localhost:8800/api/users/' + idInicioSesion,
+    url: servidor + 'users/' + idInicioSesion,
     'data': JSON.stringify({
       games: stringJuego
     }),
@@ -240,36 +217,6 @@ $("#boton-guardar-datos-juegos").click(function () {
   location.reload();
 })
 
-
-
-// $(document).ready(function () {
-//   $.ajax({
-//     url: 'https://eteamapp.herokuapp.com/api/auth/login',
-//     type: 'GET' ,
-//     success: function (respuesta) {
-//       console.log(respuesta);
-//     },
-//     error: function (){
-
-//     }
-//    });
-// })
-
-
-// $(document).ready(function () {
-//   $.ajax({
-//     url: 'https://eteamapp.herokuapp.com/api/auth/login',
-//     'data': {
-
-//       "username": "marta3333",
-//       "email": "marta3333@gmail.com",
-//       "password": "1234"
-
-//     }, //{action:'x',params:['a','b','c']}
-//     'type': 'POST',
-//     'contentType': 'application/json; charset=utf-8',
-//     'Cookie': 'jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyYTMyZTllMWE2MGVkOTc0NDBkYTE5YSIsImlhdCI6MTY1NTA0OTM5OSwiZXhwIjoxNjU1MzA4NTk5fQ.HWEVcrNwo9-b-TZdcYM7m6j-Lo8Z6lP4wznUr0ssJ3k'
-//   });
 
 function formatearFecha(fecha, estado) {
   try {
@@ -287,11 +234,49 @@ function formatearFecha(fecha, estado) {
 
 
 $("#buscador-integrante").keyup(function () {
+  if ($("#buscador-integrante").val().length < 3) return
+  console.log($("#buscador-integrante").val())
+  let valorBuscar = $("#buscador-integrante").val();
   $.ajax({
-    url: 'http://localhost:8800/api/users/?buscar='+$("#buscador-integrante").val(),
+    url: servidor + 'users?buscar=' + valorBuscar,
     'type': 'GET',
-    succes:function(response){
-      console.log($("#buscador-integrante").val())
+    success: function (response) {
+      $("#carga-integrantes button").remove()
+      let numeroElementos = Math.min(3, response.datos.length)
+      for (let i = 0; i < numeroElementos; i++) {
+        $("#carga-integrantes").append(
+          `<div id="integrante-datos${i}" class="col-md-6 seleccionar-integrante">
+              <button id="boton-integrante${i}" value="${response.datos[i].id}" class="boton-integrante">${response.datos[i].username}</button>
+          </div>`
+        )
+      }
+      $(".boton-integrante").click(function () {
+        $(".boton-integrante").removeClass("seleccionado");
+        $(this).addClass("seleccionado");
+      })
     }
   });
 })
+
+$("#lanzar-integrante-nuevo").click(function () {
+  let idMiembroSeleccionado = $(".seleccionado").val();
+  let usernameMiembroSeleccionado = $(".seleccionado").text();
+
+  $.ajax({
+    url: servidor + 'members/',
+    data: {
+      "team": idInicioSesion,
+      "user": idMiembroSeleccionado
+    },
+    'type': 'POST'
+  });
+  location.reload()
+});
+
+
+
+function toBase64(arr) {
+  return btoa(
+    arr.reduce((data, byte) => data + String.fromCharCode(byte), '')
+  );
+}
