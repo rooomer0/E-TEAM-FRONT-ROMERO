@@ -1,7 +1,7 @@
+let idInicioSesion = "62a702295174230e04ecafe4"
 $(document).ready(function () {
-
   $.ajax({
-    url: 'http://localhost:8800/api/users/62a4d28ac27a64a3da0995ec',
+    url: 'http://localhost:8800/api/users/62a702295174230e04ecafe4',
     type: 'GET',
     success: function (respuesta) {
       //carga de datos del usuario con el que se ha iniciado sesion
@@ -68,7 +68,6 @@ $(document).ready(function () {
       <div class="col-md-2 post-boton">
           <button class="boton-icono icono-xs">
               <i class="fi fi-rr-menu-dots-vertical align-middle"></i>
-              <span class="numero-interacciones ">50</span>
       </button>
       </div>
   </div>
@@ -77,8 +76,6 @@ $(document).ready(function () {
         $(`#descripcion-usuario-post-span${idPost}`).html(respuesta.datos.thePosts[index].owner.toString());
         $(`#hora-post-span${idPost}`).html(respuesta.datos.thePosts[index].createdAt.toString());
         $(`#descripcion-post-span${idPost}`).html(respuesta.datos.thePosts[index].text.toString());
-        console.log(respuesta.datos.thePosts[index].createdAt.toString());
-
       }
 
     },
@@ -152,6 +149,21 @@ $(document).ready(function () {
   })
 });
 
-
-
+$("#boton-subir-post").click(function(){
+  let contenidNuevoPost = $("#texto-post-subir").val();
+  let idOwner = "62a702295174230e04ecafe4";
+  $.ajax({
+    url: 'http://localhost:8800/api/posts/',
+    'data': JSON.stringify({   
+      text: contenidNuevoPost,
+      multimedia:"",
+      "likes.number": 0,
+      "likes.usersId":"",
+      owner: idOwner
+    }),
+    'type': 'POST',
+    'contentType': 'application/json; charset=utf-8',
+  });
+  location.reload();
+})
 
